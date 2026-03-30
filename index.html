@@ -20,20 +20,32 @@ header {
     padding: 80px 20px;
 }
 
+.hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
 .logo {
     display: block;
     width: min(220px, 55vw);
     margin: 0 auto 24px;
+    order: 1;
 }
 
-header h1 {
+.hero-text h1 {
     font-size: 3em;
     margin: 0;
 }
 
-header p {
+.hero-text p {
     font-size: 1.2em;
     margin-top: 10px;
+}
+
+.hero-text {
+    order: 2;
 }
 
 .btn {
@@ -212,6 +224,36 @@ h2 {
     }
 }
 
+@media (min-width: 900px) {
+    header {
+        padding: 48px 32px;
+        text-align: left;
+    }
+
+    .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .hero-text {
+        max-width: 620px;
+        order: 1;
+    }
+
+    .hero-text h1 {
+        font-size: 3.2em;
+    }
+
+    .logo {
+        width: 180px;
+        margin: 0;
+        justify-self: end;
+        order: 2;
+    }
+}
+
 .gallery {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
@@ -281,10 +323,14 @@ footer {
 <body>
 
 <header>
-    <img src="bilder/logo/logo-klein.png" alt="Logo von Helen's Playmobil Traum" class="logo" width="256" height="256">
-    <h1>Helen's Playmobil Traum</h1>
-    <p>Gemeinsam bauen, sammeln und Geschichten zum Leben erwecken</p>
-    <a href="mailto:helens_playmobiltraum@outlook.com?subject=Interesse%20an%20einer%20Mitgliedschaft&body=Guten%20Tag%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20Mitgliedschaft%20bei%20Helen%27s%20Playmobil%20Traum.%0A%0ABitte%20sendet%20mir%20weitere%20Informationen.%0A%0AFreundliche%20Gr%C3%BCsse%0A" class="btn">Mitglied werden</a>
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Helen's Playmobil Traum</h1>
+            <p>Gemeinsam bauen, sammeln und Geschichten zum Leben erwecken</p>
+            <a href="mailto:helens_playmobiltraum@outlook.com?subject=Interesse%20an%20einer%20Mitgliedschaft&body=Guten%20Tag%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20Mitgliedschaft%20bei%20Helen%27s%20Playmobil%20Traum.%0A%0ABitte%20sendet%20mir%20weitere%20Informationen.%0A%0AFreundliche%20Gr%C3%BCsse%0A" class="btn">Mitglied werden</a>
+        </div>
+        <img src="bilder/logo/logo-klein.png" alt="Logo von Helen's Playmobil Traum" class="logo" width="256" height="256">
+    </div>
 </header>
 
 <main id="hauptinhalt">
