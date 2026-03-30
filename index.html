@@ -97,13 +97,15 @@ h2 {
     cursor: pointer;
 }
 
-.details {
-    max-width: 1000px;
-    display: none;
+.event-title,
+.event-text {
+    display: block;
 }
 
-.details.is-open {
-    display: block;
+.event-title {
+    font-size: 1.17em;
+    font-weight: bold;
+    margin-bottom: 1em;
 }
 
 .details-head {
@@ -172,14 +174,6 @@ h2 {
     color: #ff6699;
     text-decoration: none;
     font-weight: bold;
-}
-
-.subpage {
-    display: none;
-}
-
-.subpage.is-open {
-    display: block;
 }
 
 .subpage-hero img {
@@ -299,9 +293,13 @@ h2 {
     display: block;
 }
 
+
+/* Auskommentiert da Facebook oder Instagram Auftritte noch nicht bereit sind  */
+/*
 .social {
     text-align: center;
 }
+*/
 
 .social a {
     margin: 10px;
@@ -347,26 +345,26 @@ footer {
     <div class="events">
         <div class="event">
             <button type="button" data-detail="treffen">
-                <h3>Monatliches Treffen</h3>
-                <p>Austausch, neue Ideen und gemeinsames Bauen.</p>
+                <span class="event-title">Monatliches Treffen</span>
+                <span class="event-text">Austausch, neue Ideen und gemeinsames Bauen.</span>
             </button>
         </div>
         <div class="event">
             <button type="button" data-detail="ausstellungen">
-                <h3>Ausstellungen</h3>
-                <p>Wir präsentieren unsere Werke der Öffentlichkeit.</p>
+                <span class="event-title">Ausstellungen</span>
+                <span class="event-text">Wir präsentieren unsere Werke der Öffentlichkeit.</span>
             </button>
         </div>
         <div class="event">
             <button type="button" data-detail="bauprojekte">
-                <h3>Bauprojekte</h3>
-                <p>Gemeinsam entstehen grosse kreative Welten.</p>
+                <span class="event-title">Bauprojekte</span>
+                <span class="event-text">Gemeinsam entstehen grosse kreative Welten.</span>
             </button>
         </div>
     </div>
 </section>
 
-<section class="details" id="detail-treffen">
+<section class="details" id="detail-treffen" hidden>
     <div class="details-head">
         <h3>Monatliches Treffen</h3>
         <button type="button" class="close-details">Schliessen</button>
@@ -377,7 +375,7 @@ footer {
     </div>
 </section>
 
-<section class="details" id="detail-ausstellungen">
+<section class="details" id="detail-ausstellungen" hidden>
     <div class="details-head">
         <h3>Ausstellungen</h3>
         <button type="button" class="close-details">Schliessen</button>
@@ -416,7 +414,7 @@ footer {
     </div>
 </section>
 
-<section class="details" id="detail-bauprojekte">
+<section class="details" id="detail-bauprojekte" hidden>
     <div class="details-head">
         <h3>Bauprojekte</h3>
         <button type="button" class="close-details">Schliessen</button>
@@ -494,7 +492,7 @@ footer {
 </section>
 </main>
 
-<main class="subpage" id="subpage-ausstellung-fruehlingswelt">
+<main class="subpage" id="subpage-ausstellung-fruehlingswelt" hidden>
     <section>
         <a href="#" class="subpage-back" data-back>← Zurück zur Übersicht</a>
         <div class="subpage-content" style="margin-bottom: 24px;">
@@ -518,7 +516,7 @@ footer {
     </section>
 </main>
 
-<main class="subpage" id="subpage-bauprojekt-baustelle">
+<main class="subpage" id="subpage-bauprojekt-baustelle" hidden>
     <section>
         <a href="#" class="subpage-back" data-back>← Zurück zur Übersicht</a>
         <div class="subpage-content" style="margin-bottom: 24px;">
@@ -542,7 +540,7 @@ footer {
     </section>
 </main>
 
-<main class="subpage" id="subpage-bilder-uebersicht">
+<main class="subpage" id="subpage-bilder-uebersicht" hidden>
     <section>
         <a href="#" class="subpage-back" data-back>← Zurück zur Übersicht</a>
         <div class="subpage-content">
@@ -583,7 +581,7 @@ footer {
     </section>
 </main>
 
-<main class="subpage" id="subpage-bilder-ausstellungen">
+<main class="subpage" id="subpage-bilder-ausstellungen" hidden>
     <section>
         <a href="#" class="subpage-back" data-back="bilder-uebersicht">← Zurück zu Bilder</a>
         <div class="subpage-content">
@@ -599,7 +597,7 @@ footer {
     </section>
 </main>
 
-<main class="subpage" id="subpage-bilder-bauprojekte">
+<main class="subpage" id="subpage-bilder-bauprojekte" hidden>
     <section>
         <a href="#" class="subpage-back" data-back="bilder-uebersicht">← Zurück zu Bilder</a>
         <div class="subpage-content">
@@ -615,7 +613,7 @@ footer {
     </section>
 </main>
 
-<main class="subpage" id="subpage-bilder-vereinsleben">
+<main class="subpage" id="subpage-bilder-vereinsleben" hidden>
     <section>
         <a href="#" class="subpage-back" data-back="bilder-uebersicht">← Zurück zu Bilder</a>
         <div class="subpage-content">
@@ -645,13 +643,13 @@ const backLinks = document.querySelectorAll("[data-back]");
 
 function closeAllDetails() {
     detailSections.forEach((section) => {
-        section.classList.remove("is-open");
+        section.hidden = true;
     });
 }
 
 function closeAllSubpages() {
     subpages.forEach((subpage) => {
-        subpage.classList.remove("is-open");
+        subpage.hidden = true;
     });
 }
 
@@ -669,7 +667,7 @@ function showDetail(detailId) {
     }
 
     showLandingPage();
-    target.classList.add("is-open");
+    target.hidden = false;
     target.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
@@ -683,7 +681,7 @@ function showSubpage(subpageId) {
     closeAllDetails();
     closeAllSubpages();
     mainContent.style.display = "none";
-    target.classList.add("is-open");
+    target.hidden = false;
     window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
@@ -721,8 +719,7 @@ function renderFromHash() {
 
 detailButtons.forEach((button) => {
     button.addEventListener("click", () => {
-        const detailId = "detail-" + button.dataset.detail;
-        window.location.hash = detailId;
+        window.location.hash = "detail-" + button.dataset.detail;
     });
 });
 
@@ -735,8 +732,7 @@ closeButtons.forEach((button) => {
 subpageLinks.forEach((link) => {
     link.addEventListener("click", (event) => {
         event.preventDefault();
-        const subpageId = "subpage-" + link.dataset.subpage;
-        window.location.hash = subpageId;
+        window.location.hash = "subpage-" + link.dataset.subpage;
     });
 });
 
