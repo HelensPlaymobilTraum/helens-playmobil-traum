@@ -8,7 +8,7 @@ Datum: 2026-03-30
 
 2. Hoch: Fuer eine Vereinswebseite muessen die rechtlichen Pflichtangaben vor einer Veroeffentlichung fuer die Schweiz geprueft werden. Das ist kein Rechtsrat, aber vor einem Livegang sollte das verbindlich nach Schweizer Vorgaben geklaert sein.
 
-3. Mittel: Die Galerie hat zuvor Bilder ueber GitHub-Raw-URLs geladen statt ueber lokale relative Pfade. Das erzeugt eine unnoetige externe Abhaengigkeit fuer eigene Dateien, macht lokale und Offline-Vorschauen unzuverlaessiger und ist fehleranfaellig, wenn sich Branch oder Repo-Pfad aendern. Diese Dateien sollten lokal eingebunden sein. Siehe `index.html:138`, `index.html:139`, `index.html:140`.
+3. ~~Mittel: Die Galerie hat zuvor Bilder ueber GitHub-Raw-URLs geladen statt ueber lokale relative Pfade. Das erzeugt eine unnoetige externe Abhaengigkeit fuer eigene Dateien, macht lokale und Offline-Vorschauen unzuverlaessiger und ist fehleranfaellig, wenn sich Branch oder Repo-Pfad aendern. Diese Dateien sollten lokal eingebunden sein. Siehe `index.html:138`, `index.html:139`, `index.html:140`.~~
 
 4. Mittel: Die Seite wirkt derzeit eher wie eine allgemeine Vorlage als wie eine echte Vereinswebseite. Die Texte sind noch weitgehend Platzhalter, es fehlen konkrete Angaben zu Ort, Termin, Kontakt oder verantwortlichen Personen, und die vorhandene visuelle Identitaet aus Sticker oder Logo wird noch nicht sichtbar eingesetzt. Dadurch entsteht noch nicht genug Vertrauen oder Wiedererkennung.
 
