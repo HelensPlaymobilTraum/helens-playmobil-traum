@@ -20,14 +20,32 @@ header {
     padding: 80px 20px;
 }
 
-header h1 {
+.hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.logo {
+    display: block;
+    width: min(220px, 55vw);
+    margin: 0 auto 24px;
+    order: 1;
+}
+
+.hero-text h1 {
     font-size: 3em;
     margin: 0;
 }
 
-header p {
+.hero-text p {
     font-size: 1.2em;
     margin-top: 10px;
+}
+
+.hero-text {
+    order: 2;
 }
 
 .btn {
@@ -68,6 +86,168 @@ h2 {
     box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
+.event button {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    padding: 0;
+    text-align: left;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+.event-title,
+.event-text {
+    display: block;
+}
+
+.event-title {
+    font-size: 1.17em;
+    font-weight: bold;
+    margin-bottom: 1em;
+}
+
+.details-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.close-details {
+    border: 0;
+    background: #ff6699;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 999px;
+    font: inherit;
+    cursor: pointer;
+}
+
+.detail-content {
+    background: #fff;
+    padding: 28px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.detail-content h3 {
+    margin-top: 0;
+}
+
+.event-list {
+    display: grid;
+    gap: 24px;
+}
+
+.event-entry {
+    display: grid;
+    grid-template-columns: minmax(220px, 320px) 1fr;
+    gap: 24px;
+    align-items: start;
+    padding: 24px 0;
+    border-top: 1px solid #ececec;
+}
+
+.event-entry:first-of-type {
+    border-top: 0;
+    padding-top: 0;
+}
+
+.event-entry img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+}
+
+.event-meta {
+    color: #666;
+    font-size: 0.95em;
+    margin-bottom: 10px;
+}
+
+.entry-link {
+    display: inline-block;
+    margin-top: 12px;
+    color: #ff6699;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.subpage-hero img {
+    width: 100%;
+    max-height: 460px;
+    object-fit: cover;
+    border-radius: 16px;
+    display: block;
+}
+
+.subpage-content {
+    background: #fff;
+    padding: 28px;
+    border-radius: 16px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+}
+
+.subpage-back {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #ff6699;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.subpage-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-top: 24px;
+}
+
+.subpage-gallery img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+}
+
+@media (max-width: 720px) {
+    .event-entry {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 900px) {
+    header {
+        padding: 48px 32px;
+        text-align: left;
+    }
+
+    .hero {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .hero-text {
+        max-width: 620px;
+        order: 1;
+    }
+
+    .hero-text h1 {
+        font-size: 3.2em;
+    }
+
+    .logo {
+        width: 180px;
+        margin: 0;
+        justify-self: end;
+        order: 2;
+    }
+}
+
 .gallery {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
@@ -77,9 +257,49 @@ h2 {
     border-radius: 10px;
 }
 
+.teaser-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+}
+
+.gallery-actions {
+    text-align: center;
+    margin-top: 24px;
+}
+
+.category-list {
+    display: grid;
+    gap: 24px;
+}
+
+.category-entry {
+    display: grid;
+    grid-template-columns: minmax(220px, 320px) 1fr;
+    gap: 24px;
+    align-items: start;
+    padding: 24px 0;
+    border-top: 1px solid #ececec;
+}
+
+.category-entry:first-of-type {
+    border-top: 0;
+    padding-top: 0;
+}
+
+.category-entry img {
+    width: 100%;
+    border-radius: 12px;
+    display: block;
+}
+
+
+/* Auskommentiert da Facebook oder Instagram Auftritte noch nicht bereit sind  */
+/*
 .social {
     text-align: center;
 }
+*/
 
 .social a {
     margin: 10px;
@@ -101,11 +321,17 @@ footer {
 <body>
 
 <header>
-    <h1>Helen's Playmobil Traum</h1>
-    <p>Gemeinsam bauen, sammeln und Geschichten zum Leben erwecken</p>
-    <a href="#contact" class="btn">Mitglied werden</a>
+    <div class="hero">
+        <div class="hero-text">
+            <h1>Helen's Playmobil Traum</h1>
+            <p>Gemeinsam bauen, sammeln und Geschichten zum Leben erwecken</p>
+            <a href="mailto:helens_playmobiltraum@outlook.com?subject=Interesse%20an%20einer%20Mitgliedschaft&body=Guten%20Tag%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20Mitgliedschaft%20bei%20Helen%27s%20Playmobil%20Traum.%0A%0ABitte%20sendet%20mir%20weitere%20Informationen.%0A%0AFreundliche%20Gr%C3%BCsse%0A" class="btn">Mitglied werden</a>
+        </div>
+        <img src="bilder/logo/logo-klein.png" alt="Logo von Helen's Playmobil Traum" class="logo" width="256" height="256">
+    </div>
 </header>
 
+<main id="hauptinhalt">
 <section>
     <h2>Über uns</h2>
     <p style="text-align:center;">
@@ -118,35 +344,101 @@ footer {
     <h2>Events</h2>
     <div class="events">
         <div class="event">
-            <h3>Monatliches Treffen</h3>
-            <p>Austausch, neue Ideen und gemeinsames Bauen.</p>
+            <button type="button" data-detail="treffen">
+                <span class="event-title">Monatliches Treffen</span>
+                <span class="event-text">Austausch, neue Ideen und gemeinsames Bauen.</span>
+            </button>
         </div>
         <div class="event">
-            <h3>Ausstellungen</h3>
-            <p>Wir präsentieren unsere Werke der Öffentlichkeit.</p>
+            <button type="button" data-detail="ausstellungen">
+                <span class="event-title">Ausstellungen</span>
+                <span class="event-text">Wir präsentieren unsere Werke der Öffentlichkeit.</span>
+            </button>
         </div>
         <div class="event">
-            <h3>Bauprojekte</h3>
-            <p>Gemeinsam entstehen große kreative Welten.</p>
+            <button type="button" data-detail="bauprojekte">
+                <span class="event-title">Bauprojekte</span>
+                <span class="event-text">Gemeinsam entstehen grosse kreative Welten.</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+<section class="details" id="detail-treffen" hidden>
+    <div class="details-head">
+        <h3>Monatliches Treffen</h3>
+        <button type="button" class="close-details">Schliessen</button>
+    </div>
+    <div class="detail-content">
+        <p>Bei unseren Treffen tauschen wir Ideen aus, zeigen neue Figuren und Sets und sprechen über kommende Projekte. Neue Interessierte sind herzlich willkommen.</p>
+        <p>Die nächsten Informationen zu Termin und Ort geben wir direkt auf Anfrage bekannt.</p>
+    </div>
+</section>
+
+<section class="details" id="detail-ausstellungen" hidden>
+    <div class="details-head">
+        <h3>Ausstellungen</h3>
+        <button type="button" class="close-details">Schliessen</button>
+    </div>
+    <div class="detail-content">
+        <p>Mit unseren Ausstellungen möchten wir die Vielfalt von Playmobil zeigen und Besucherinnen und Besucher für kreative Themenwelten begeistern. Im Mittelpunkt stehen liebevoll gestaltete Szenen, besondere Figuren und die Freude am gemeinsamen Präsentieren.</p>
+        <div class="event-list">
+            <article class="event-entry">
+                <div>
+                    <h4>Ausstellungen folgen</h4>
+                    <p class="event-meta">Hier erscheint bald die erste Übersicht</p>
+                    <p>Dieser Bereich ist vorbereitet für kommende Ausstellungen mit Titel, Ort, Zeitraum, Beschreibung und Bildern.</p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+<section class="details" id="detail-bauprojekte" hidden>
+    <div class="details-head">
+        <h3>Bauprojekte</h3>
+        <button type="button" class="close-details">Schliessen</button>
+    </div>
+    <div class="detail-content">
+        <p>In unseren Bauprojekten entstehen kleine und grosse Themenwelten mit viel Liebe zum Detail. Jedes Projekt zeigt eine eigene Idee, eine eigene Stimmung und die Freude am gemeinsamen Gestalten.</p>
+        <div class="event-list">
+            <article class="event-entry">
+                <div>
+                    <h4>Bauprojekte folgen</h4>
+                    <p class="event-meta">Hier entsteht die erste Übersicht</p>
+                    <p>Dieser Bereich ist vorbereitet für künftige Projekte mit Titel, kurzer Beschreibung, Bildern und weiterführenden Detailseiten.</p>
+                </div>
+            </article>
         </div>
     </div>
 </section>
 
 <section>
-    <h2>Galerie</h2>
-    <div class="gallery">
-        <img src="https://raw.githubusercontent.com/HelensPlaymobilTraum/helens-playmobil-traum/refs/heads/main/Playmobil_1.jpg?raw=true" alt="Helen und Jens mit grosser Playmobilfigur">
-        <img src="https://raw.githubusercontent.com/HelensPlaymobilTraum/helens-playmobil-traum/refs/heads/main/Playmobil-3.jpg?raw=true" alt="Playmobil Szene">
-        <img src="https://raw.githubusercontent.com/HelensPlaymobilTraum/helens-playmobil-traum/refs/heads/main/Playmobil-2.jpg?raw=true" alt="Playmobil Szene">
-    </div>
+    <a href="#" class="teaser-link" data-subpage="bilder-uebersicht">
+        <h2>Einblicke</h2>
+        <p style="text-align:center;">
+            Einige Eindrücke aus unserem Verein. Weitere Bilder findest du bei den einzelnen Ausstellungen und Bauprojekten.
+        </p>
+        <div class="gallery">
+            <img src="bilder/galerie/vereinsfoto.jpg" alt="Helen und Jens mit grosser Playmobilfigur">
+            <img src="bilder/galerie/marktszene.jpg" alt="Markt Szene">
+            <img src="bilder/galerie/gartenszene.jpg" alt="Garten Szene">
+        </div>
+        <div class="gallery-actions">
+            <span class="entry-link">Alle Bilder ansehen</span>
+        </div>
+    </a>
 </section>
 
+<!-- Auskommentiert da Facebook oder Instagram Auftritte noch nicht bereit sind -->
+<!--
 <section class="social">
     <h2>Social Media</h2>
     <p>Folge uns für Updates und neue Projekte:</p>
     <a href="#">Instagram</a>
     <a href="#">Facebook</a>
 </section>
+-->
 
 <section id="contact">
     <h2>Kontakt</h2>
@@ -155,13 +447,244 @@ footer {
         Schreib uns eine E-Mail:
     </p>
     <p style="text-align:center;">
-        📧 helens_playmobiltraum@outlook.com
+        📧 <a href="mailto:helens_playmobiltraum@outlook.com">helens_playmobiltraum@outlook.com</a>
     </p>
 </section>
+</main>
+
+<main class="subpage" id="subpage-ausstellung-fruehlingswelt" hidden>
+    <section>
+        <a href="#" class="subpage-back" data-back>← Zurück zur Übersicht</a>
+        <div class="subpage-content" style="margin-bottom: 24px;">
+            <h2>Detailseite Ausstellung</h2>
+            <p class="event-meta">Platz für Titel, Zeitraum und Ort</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="subpage-content">
+            <p>Hier kann später eine vollständige Ausstellungsseite mit Texten, Bildern und weiteren Informationen eingefügt werden.</p>
+        </div>
+    </section>
+</main>
+
+<main class="subpage" id="subpage-bauprojekt-baustelle" hidden>
+    <section>
+        <a href="#" class="subpage-back" data-back>← Zurück zur Übersicht</a>
+        <div class="subpage-content" style="margin-bottom: 24px;">
+            <h2>Detailseite Bauprojekt</h2>
+            <p class="event-meta">Platz für Titel und kurze Einordnung</p>
+        </div>
+    </section>
+
+    <section>
+        <div class="subpage-content">
+            <p>Hier kann später eine vollständige Projektseite mit Texten, Bildern und weiteren Informationen eingefügt werden.</p>
+        </div>
+    </section>
+</main>
+
+<main class="subpage" id="subpage-bilder-uebersicht" hidden>
+    <section>
+        <a href="#" class="subpage-back" data-back>← Zurück zur Übersicht</a>
+        <div class="subpage-content">
+            <h2>Bilder</h2>
+            <p>Hier findest du die Bilder nach Bereichen geordnet. So lassen sich Ausstellungen, Bauprojekte und Eindrücke aus dem Vereinsleben getrennt anschauen.</p>
+            <div class="category-list">
+                <article class="category-entry">
+                    <div>
+                        <h3>Ausstellungen</h3>
+                        <p class="event-meta">Sammlung aus öffentlichen Präsentationen</p>
+                        <p>Bilder von aufgebauten Themenwelten, einzelnen Szenen und besonderen Details aus unseren Ausstellungen.</p>
+                        <a href="#" class="entry-link" data-subpage="bilder-ausstellungen">Zur Kategorie</a>
+                    </div>
+                </article>
+
+                <article class="category-entry">
+                    <div>
+                        <h3>Bauprojekte</h3>
+                        <p class="event-meta">Modelle, Szenen und Themenwelten</p>
+                        <p>Bilder aus gemeinschaftlichen Projekten und einzelnen Themenwelten mit Figuren, Fahrzeugen und vielen kleinen Details.</p>
+                        <a href="#" class="entry-link" data-subpage="bilder-bauprojekte">Zur Kategorie</a>
+                    </div>
+                </article>
+
+                <article class="category-entry">
+                    <img src="bilder/galerie/vereinsfoto.jpg" alt="Vereinsbild mit grosser Playmobilfigur">
+                    <div>
+                        <h3>Vereinsleben</h3>
+                        <p class="event-meta">Menschen, Begegnungen und Eindrücke</p>
+                        <p>Einblicke in den Verein, gemeinsame Momente und Bilder rund um Begegnungen, Präsentationen und das Miteinander.</p>
+                        <a href="#" class="entry-link" data-subpage="bilder-vereinsleben">Zur Kategorie</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+</main>
+
+<main class="subpage" id="subpage-bilder-ausstellungen" hidden>
+    <section>
+        <a href="#" class="subpage-back" data-back="bilder-uebersicht">← Zurück zu Bilder</a>
+        <div class="subpage-content">
+            <h2>Bilder zu Ausstellungen</h2>
+            <p class="event-meta">Platz für eine eigene Bildsammlung</p>
+            <p>Hier können später Bilder aus Ausstellungen gesammelt und nach Bedarf ergänzt werden.</p>
+        </div>
+    </section>
+</main>
+
+<main class="subpage" id="subpage-bilder-bauprojekte" hidden>
+    <section>
+        <a href="#" class="subpage-back" data-back="bilder-uebersicht">← Zurück zu Bilder</a>
+        <div class="subpage-content">
+            <h2>Bilder zu Bauprojekten</h2>
+            <p class="event-meta">Platz für eine eigene Bildsammlung</p>
+            <p>Hier können später Bilder aus Bauprojekten gesammelt und nach Bedarf ergänzt werden.</p>
+        </div>
+    </section>
+</main>
+
+<main class="subpage" id="subpage-bilder-vereinsleben" hidden>
+    <section>
+        <a href="#" class="subpage-back" data-back="bilder-uebersicht">← Zurück zu Bilder</a>
+        <div class="subpage-content">
+            <h2>Bilder aus dem Vereinsleben</h2>
+            <p class="event-meta">Menschen, Begegnungen und gemeinsame Momente</p>
+            <div class="subpage-gallery">
+                <img src="bilder/galerie/vereinsfoto.jpg" alt="Helen und Jens mit grosser Playmobilfigur">
+                <img src="bilder/galerie/marktszene.jpg" alt="Markt Szene">
+                <img src="bilder/galerie/gartenszene.jpg" alt="Garten Szene">
+            </div>
+        </div>
+    </section>
+</main>
 
 <footer>
     <p>© 2026 Helen's Playmobil Traum</p>
 </footer>
+
+<script>
+const mainContent = document.getElementById("hauptinhalt");
+const detailButtons = document.querySelectorAll("[data-detail]");
+const detailSections = document.querySelectorAll(".details");
+const closeButtons = document.querySelectorAll(".close-details");
+const subpageLinks = document.querySelectorAll("[data-subpage]");
+const subpages = document.querySelectorAll(".subpage");
+const backLinks = document.querySelectorAll("[data-back]");
+
+function closeAllDetails() {
+    detailSections.forEach((section) => {
+        section.hidden = true;
+    });
+}
+
+function closeAllSubpages() {
+    subpages.forEach((subpage) => {
+        subpage.hidden = true;
+    });
+}
+
+function showLandingPage() {
+    closeAllDetails();
+    closeAllSubpages();
+    mainContent.style.display = "";
+}
+
+function showDetail(detailId) {
+    const target = document.getElementById(detailId);
+
+    if (!target) {
+        return;
+    }
+
+    showLandingPage();
+    target.hidden = false;
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function showSubpage(subpageId) {
+    const target = document.getElementById(subpageId);
+
+    if (!target) {
+        return;
+    }
+
+    closeAllDetails();
+    closeAllSubpages();
+    mainContent.style.display = "none";
+    target.hidden = false;
+    window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function clearViewHash() {
+    history.pushState({}, "", location.pathname + location.search);
+    showLandingPage();
+}
+
+function renderFromHash() {
+    const hash = window.location.hash.slice(1);
+
+    if (!hash) {
+        showLandingPage();
+        return;
+    }
+
+    if (hash.startsWith("detail-") && document.getElementById(hash)) {
+        showDetail(hash);
+        return;
+    }
+
+    if (hash.startsWith("subpage-") && document.getElementById(hash)) {
+        showSubpage(hash);
+        return;
+    }
+
+    showLandingPage();
+
+    const target = document.getElementById(hash);
+
+    if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+}
+
+detailButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        window.location.hash = "detail-" + button.dataset.detail;
+    });
+});
+
+closeButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+        clearViewHash();
+    });
+});
+
+subpageLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+        event.preventDefault();
+        window.location.hash = "subpage-" + link.dataset.subpage;
+    });
+});
+
+backLinks.forEach((link) => {
+    link.addEventListener("click", (event) => {
+        event.preventDefault();
+
+        if (link.dataset.back) {
+            window.location.hash = "subpage-" + link.dataset.back;
+            return;
+        }
+
+        clearViewHash();
+    });
+});
+
+window.addEventListener("hashchange", renderFromHash);
+window.addEventListener("popstate", renderFromHash);
+renderFromHash();
+</script>
 
 </body>
 </html>
