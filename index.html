@@ -13,26 +13,15 @@ body {
     color: #333;
 }
 
-header {
-    <header class="hero">
-    <div class="overlay">
-        <h1>Helen's Playmobil Traum</h1>
-        <p>Gemeinsam bauen, sammeln und Geschichten erleben</p>
-        <a href="#contact" class="btn">Mitglied werden</a>
-    </div>
-</header>
-}
-
+/* HERO */
 .hero {
-    background-image: url('https://github.com/DEINNAME/helens-playmobil-traum/blob/main/header.jpg?raw=true');
+    background-image: url('https://github.com/HelensPlaymobilTraum/helens-playmobil-traum/blob/main/header.jpg?raw=true');
     background-size: cover;
     background-position: center;
     height: 90vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    text-align: center;
-    position: relative;
 }
 
 .overlay {
@@ -83,6 +72,7 @@ header {
     font-weight: bold;
 }
 
+    /* SECTIONS */
 section {
     padding: 60px 20px;
     max-width: 1000px;
@@ -94,6 +84,7 @@ h2 {
     margin-bottom: 30px;
 }
 
+    /* EVENTS */
 .events, .gallery {
     display: grid;
     gap: 20px;
@@ -272,6 +263,7 @@ h2 {
     }
 }
 
+    /* GALLERY */
 .gallery {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 }
@@ -344,14 +336,12 @@ footer {
 
 <body>
 
-<header>
-    <div class="hero">
-        <div class="hero-text">
-            <h1>Helen's Playmobil Traum</h1>
-            <p>Gemeinsam bauen, sammeln und Geschichten zum Leben erwecken</p>
-            <a href="mailto:helens_playmobiltraum@outlook.com?subject=Interesse%20an%20einer%20Mitgliedschaft&body=Guten%20Tag%0A%0Aich%20interessiere%20mich%20f%C3%BCr%20eine%20Mitgliedschaft%20bei%20Helen%27s%20Playmobil%20Traum.%0A%0ABitte%20sendet%20mir%20weitere%20Informationen.%0A%0AFreundliche%20Gr%C3%BCsse%0A" class="btn">Mitglied werden</a>
-        </div>
-        <img src="bilder/logo/logo-klein.png" alt="Logo von Helen's Playmobil Traum" class="logo" width="256" height="256">
+<!-- HERO -->
+<header class="hero">
+    <div class="overlay">
+        <h1>Helen's Playmobil Traum</h1>
+        <p>Gemeinsam bauen, sammeln und Geschichten erleben</p>
+        <a href="#contact" class="btn">Mitglied werden</a>
     </div>
 </header>
 
@@ -364,19 +354,17 @@ footer {
     </p>
 </section>
 
+    <!-- EVENTS -->
 <section>
     <h2>Events</h2>
     <div class="events">
         <div class="event">
-            <button type="button" data-detail="treffen">
-                <span class="event-title">Monatliches Treffen</span>
-                <span class="event-text">Austausch, neue Ideen und gemeinsames Bauen.</span>
-            </button>
-        </div>
-        <div class="event">
             <button type="button" data-detail="ausstellungen">
-                <span class="event-title">Ausstellungen</span>
-                <span class="event-text">Wir präsentieren unsere Werke der Öffentlichkeit.</span>
+                      <p><strong>Ort:</strong> LUGA Luzern</p>
+            <p>Unsere Playmobil-Welten live erleben.</p>
+        </div>
+    </div>
+</section>
             </button>
         </div>
         <div class="event">
@@ -399,6 +387,16 @@ footer {
     </div>
 </section>
 
+    <!-- LUGA BANNER -->
+<section style="text-align:center;">
+    <h2>Nächste Veranstaltung: LUGA 2026</h2>
+
+    <a href="https://www.luga.ch/de/ticket?voucher=Luga26_Playmobil" target="_blank">
+        <img src="https://github.com/HelensPlaymobilTraum/helens-playmobil-traum/blob/main/luga-banner.jpg?raw=true"
+             alt="LUGA Banner"
+             style="width:100%; max-width:900px; border-radius:15px;">
+    </a>
+</section>
 <section class="details" id="detail-ausstellungen" hidden>
     <div class="details-head">
         <h3>Ausstellungen</h3>
